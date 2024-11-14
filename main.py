@@ -7,7 +7,7 @@ import pyautogui
 def on_submit(firstname, initial, lastname, password, login_name, email, jenzabar_id, department):
     # Call the external Python script with the user data as arguments
     subprocess.run([
-        'python', './Active-Directory-and-Jenzabar-Automation/add-user.py', 
+        'python', 'add-user.py', 
         firstname, initial, lastname, password, 
         login_name, email, jenzabar_id, department
     ])
