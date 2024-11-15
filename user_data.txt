@@ -1,0 +1,5 @@
+Firstname: ace, Initial: af, Lastname: flyn, Password: password, Login Name: aceflyn, Email: aceflyn@gmail.com, Jenabar ID: 4535, Department: IA
+Firstname: a, Initial: a, Lastname: a, Password: a, Login Name: a, Email: a@s.s, Jenabar ID: a, Department: a
+Firstname: a, Initial: a, Lastname: a, Password: a, Login Name: a, Email: a@a.h, Jenabar ID: a, Department: a
+Firstname: a, Initial: a, Lastname: a, Password: defaultpw, Login Name: a, Email: a@d.d, Jenabar ID: a, Department: a
+Firstname: a, Initial: a, Lastname: a, Password: defaultpw, Login Name: a, Email: a@e.e, Jenabar ID: a, Department: a

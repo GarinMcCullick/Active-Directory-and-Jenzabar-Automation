@@ -18,34 +18,34 @@
         overflow-x: hidden;
         overflow-y: auto;
       }
-        /* Style the scrollbar for the entire page */
-        ::-webkit-scrollbar {
-          width: 12px;  /* Width of the scrollbar */
-          height: 12px; /* Height of the horizontal scrollbar */
-        }
+      /* Style the scrollbar for the entire page */
+      ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+        height: 12px; /* Height of the horizontal scrollbar */
+      }
 
-        /* Style the track (background) of the scrollbar */
-        ::-webkit-scrollbar-track {
-          background: #333333; /* Dark background for the track */
-          border-radius: 10px; /* Rounded corners */
-        }
+      /* Style the track (background) of the scrollbar */
+      ::-webkit-scrollbar-track {
+        background: #333333; /* Dark background for the track */
+        border-radius: 10px; /* Rounded corners */
+      }
 
-        /* Style the thumb (the draggable part of the scrollbar) */
-        ::-webkit-scrollbar-thumb {
-          background-color: #3498db; /* Blue color for the thumb */
-          border-radius: 10px; /* Rounded corners */
-          border: 2px solid #2c3e50; /* Add a slight border for contrast */
-        }
+      /* Style the thumb (the draggable part of the scrollbar) */
+      ::-webkit-scrollbar-thumb {
+        background-color: #3498db; /* Blue color for the thumb */
+        border-radius: 10px; /* Rounded corners */
+        border: 2px solid #2c3e50; /* Add a slight border for contrast */
+      }
 
-        /* Style the thumb when it is hovered */
-        ::-webkit-scrollbar-thumb:hover {
-          background-color: #2980b9; /* Darker blue when hovered */
-        }
+      /* Style the thumb when it is hovered */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #2980b9; /* Darker blue when hovered */
+      }
 
-        /* Style the scrollbar when it is active */
-        ::-webkit-scrollbar-thumb:active {
-          background-color: #1c6d8c; /* Even darker blue when clicked */
-        }
+      /* Style the scrollbar when it is active */
+      ::-webkit-scrollbar-thumb:active {
+        background-color: #1c6d8c; /* Even darker blue when clicked */
+      }
 
       .form-container {
         width: 100%;
@@ -57,7 +57,8 @@
         padding: 30px;
       }
 
-      h1, h3 {
+      h1,
+      h3 {
         text-align: center;
         margin-bottom: 20px;
       }
@@ -158,8 +159,12 @@
 
       /* Animation for spinning */
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -184,14 +189,14 @@
             <input type="text" id="lastname" name="lastname" required />
           </div>
           <div>
-           <!-- Email Address -->
-           <label for="email">Email Address:</label>
-           <input type="email" id="email" name="email" required />
+            <!-- Email Address -->
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required />
           </div>
           <div>
             <!-- Password -->
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
+            <input value="defaultpw" id="password" name="password" required />
           </div>
         </div>
 
@@ -220,7 +225,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" id="submitBtn">Submit</button>
+        <button type="submit" id="submitBtn">Add User</button>
         <!-- Loading Spinner -->
         <div id="loadingSpinner" class="spinner"></div>
       </form>
@@ -266,29 +271,46 @@
           const department = document.getElementById("department").value;
 
           // Call the Python function via Eel
-          eel.on_submit(firstname, initial, lastname, password, login_name, email, jenzabar_id, department); // Pass form data to Python backend
+          eel.on_submit(
+            firstname,
+            initial,
+            lastname,
+            password,
+            login_name,
+            email,
+            jenzabar_id,
+            department
+          ); // Pass form data to Python backend
 
           // After 4 seconds, show success message and re-enable the form
           setTimeout(function () {
             // Hide the spinner and show the submit button as "Resubmit"
             spinner.style.display = "none";
             submitButton.style.display = "block";
+            submitButton.style.display = "none";
             submitButton.innerHTML = "Resubmit";
             submitButton.classList.add("submitted"); // Add green class for the button
 
             // Get the latest login_name value
-            const updatedLoginName = document.getElementById("login_name").value;
+            const updatedLoginName =
+              document.getElementById("login_name").value;
 
             // Update success message dynamically
-            successMessage.innerHTML = `${updatedLoginName} updated successfully!`;
+            successMessage.innerHTML = `${updatedLoginName} added successfully!`;
             successMessage.style.display = "block"; // Show the success message
 
             // Re-enable the form
-            document.getElementById("userForm").querySelectorAll("input").forEach(input => input.disabled = false);
-          }, 4000); // Adjust this delay based on your backend processing time
+            document
+              .getElementById("userForm")
+              .querySelectorAll("input")
+              .forEach((input) => (input.disabled = false));
+          }, 1000); // Adjust this delay based on your backend processing time
 
           // Disable the form during submission
-          document.getElementById("userForm").querySelectorAll("input").forEach(input => input.disabled = true);
+          document
+            .getElementById("userForm")
+            .querySelectorAll("input")
+            .forEach((input) => (input.disabled = true));
         });
     </script>
   </body>
